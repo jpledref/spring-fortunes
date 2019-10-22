@@ -19,6 +19,4 @@ public class InfoController {
 		return new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date());
 	}
 	
-	
-	
 }
