@@ -26,3 +26,15 @@ curl http://localhost:8080/
 curl http://localhost:8080/?raw=true
 ```
 
+## Build Docker image
+
+```bash
+docker build -t spring-fortunes -f docker/DockerFile .
+```
+
+## Start Docker image on port 8080
+
+```bash
+docker run -p 8080:8080 spring-fortunes
+```
+
