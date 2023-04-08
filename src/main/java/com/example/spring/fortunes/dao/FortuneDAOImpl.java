@@ -15,30 +15,30 @@ import com.example.spring.fortunes.models.Fortune;
 import com.example.spring.fortunes.threads.FortunesLoader;
 
 @Repository
-public class FortuneDAOImpl implements FortuneDAO{
-	
-	public List<Fortune>fortunes=new ArrayList<>();
-	 
-	private FortuneDAOImpl(){		
-		FortunesLoader fl=new FortunesLoader();
-		fl.setFortuneDAO(this);
-		Thread thread = new Thread(fl);	
-		thread.start();		
-    }	
+public class FortuneDAOImpl implements FortuneDAO {
 
-	@Override
-	public List<Fortune> findAll() {
-		return fortunes;
-	}
+  public List<Fortune> fortunes = new ArrayList<>();
 
-	@Override
-	public Fortune findOne() {		
-		return fortunes.get(new Random().nextInt(fortunes.size()));
-	}
+  private FortuneDAOImpl() {
+    FortunesLoader fl = new FortunesLoader();
+    fl.setFortuneDAO(this);
+    Thread thread = new Thread(fl);
+    thread.start();
+  }
 
-	@Override
-	public void save(List<Fortune> list) {
-		fortunes=list;		
-	}
+  @Override
+  public List<Fortune> findAll() {
+    return fortunes;
+  }
+
+  @Override
+  public Fortune findOne() {
+    return fortunes.get(new Random().nextInt(fortunes.size()));
+  }
+
+  @Override
+  public void save(List<Fortune> list) {
+    fortunes = list;
+  }
 
 }
